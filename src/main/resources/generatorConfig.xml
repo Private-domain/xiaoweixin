@@ -19,7 +19,17 @@
         <javaClientGenerator targetPackage="com.xiaoweixin.repository"
             targetProject="E:\git\xiaoweixin\src\main\java" type="XMLMAPPER" />
 <!--数据库中的表名  -->
-       <table schema="CL_DEMO" tableName="t_qr_code" />
 <!--多张表可以添加多个       <table schema="CL_DEMO" tableName="t_table_name2" /> -->
+<table schema="CL_DEMO" tableName="t_dict" />
+<table schema="CL_DEMO" tableName="t_dict_data" />
+<table schema="CL_DEMO" tableName="t_friend" />
+<table schema="CL_DEMO" tableName="t_menu" />
+<table schema="CL_DEMO" tableName="t_org" />
+<table schema="CL_DEMO" tableName="t_qr" />
+<table schema="CL_DEMO" tableName="t_role" />
+<table schema="CL_DEMO" tableName="t_role_level" />
+<table schema="CL_DEMO" tableName="t_role_menu" />
+<table schema="CL_DEMO" tableName="t_user" />
+<table schema="CL_DEMO" tableName="t_user_role" />
     </context>
 </generatorConfiguration>  

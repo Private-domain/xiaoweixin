@@ -2,21 +2,28 @@ package com.xiaoweixin.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class ModelControl {
 
 
-	@RequestMapping("/hello/{name}")
-	public String hello(@PathVariable("name") String name, Model model) {
-		model.addAttribute("name", name);
-		return "hello";
-	}
+	 /**
+     * 测试hello
+     * @return
+     */
+    @RequestMapping(value = "/hello",method = RequestMethod.GET)
+    public String hello(Model model) {
+        model.addAttribute("name", "Dear");
+        return "hello";
+    }
 
-	@RequestMapping("/indxe")
-	public String put(Model model) {
+    /**
+     * 测试indxe
+     */
+	@RequestMapping(value = "/indxe",method = RequestMethod.GET)
+	public String indxe(Model model) {
 		model.addAttribute("name", "OUYANGGUANGLIN");
 		return "index";
 	}
