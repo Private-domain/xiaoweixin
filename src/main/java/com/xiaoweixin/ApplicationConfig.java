@@ -10,8 +10,9 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter {
 	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-	    registry.addResourceHandler("/mystatic/**")
-	            .addResourceLocations("classpath:/mystatic/*.js");
+	    registry.addResourceHandler("/static/**")
+	            .addResourceLocations("classpath:/static/*.js")
+	             .addResourceLocations("classpath:/static/*.css");
 	}
 
 }
