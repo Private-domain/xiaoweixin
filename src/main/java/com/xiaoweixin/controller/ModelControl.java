@@ -2,7 +2,12 @@ package com.xiaoweixin.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,12 +40,22 @@ public class ModelControl {
 
     /**
      */
-	@RequestMapping(value = "/indxe",method = RequestMethod.GET)
+	@RequestMapping(value = "/index",method = RequestMethod.GET)
 	public String indxe(Model model) {
 		TUserExample example = new TUserExample();
 		List<TUser> data = tUserService.findTUserList(example);
 		model.addAttribute("data", data);
 		return "index";
 	}
+	
+	@RequestMapping(value = "/my_index",method = RequestMethod.GET)
+	public String my_indxe(HttpServletRequest request,Model model) {
+		TUserExample example = new TUserExample();
+		example.or().andNoEqualTo(String.valueOf(request.getParameter("no")));
+		TUser data = tUserService.findTUserList(example).get(0);
+		model.addAttribute("data", data);
+		return "my_index";
+	}
+	
 
 }
